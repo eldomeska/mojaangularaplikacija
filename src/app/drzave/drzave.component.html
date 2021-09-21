@@ -1,0 +1,65 @@
+
+<div class="alert alert-danger alert-dismissible fade show" role="alert" *ngIf="greska">
+
+    <p> {{ greska }}</p>
+  
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  
+  </div>
+  
+  
+  
+  <div class="alert alert-success alert-dismissible fade show" role="alert" *ngIf="uspjeh">
+  
+    <p> {{ uspjeh }}</p>
+  
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+  
+  </div>
+
+
+<div class="container">
+
+
+    <button class="btn btn-info" *ngFor="let regija of regije" (click)="filterPoRegiji(regija)">{{ regija }}</button>
+    
+    <br>
+
+    <label>Ukupno stanovnika : {{ ukupanBrojStanovnika | number }}</label>&nbsp;
+    <label>Ukupna povrsina : {{ ukupnaPovrsina | number }} km2</label><br>
+    <br>
+
+<div>
+<input  type="text" [(ngModel)]="terminZaPretragu" (ngModelChange)= "pretraga($event)">
+<button class="btn btn-primary" (click)="filtriraj()">Pretraži</button>
+<button class="btn btn-primary" (click)="ponistiPretragu()">Poništi pretragu</button>
+</div>
+<br>
+
+   <button class="btn btn-primary" (click)="sortiraj()">Sortiraj po imenu</button> 
+   <button class="btn btn-success" (click)="sortirajPoBrojuStanovnika()">Sortiraj po broju st.</button>
+<table class="table table-striped">
+<thead>
+    <th>Ime</th>
+    <th>Alfa 3 kod</th>
+    <th>Regija</th>
+    <th>Broj stanovnika</th>
+    <th>Glavni grad</th>
+    <th>Povrsina</th>
+    <th>Zastava</th>
+</thead>
+
+<tbody>
+<tr *ngFor="let drzava of listaDrazavaZaDisplay" [ngClass]="{'preko300': drzava.population > 300000000   , 'table-success':  drzava.capital === 'Beijing'} ">
+    <td>{{ drzava.name }}</td>
+    <td>{{ drzava.alpha3Code}}</td>
+    <td>{{ drzava.region}}</td>
+    <td>{{ drzava.population | number}}</td>
+    <td>{{ drzava.capital}}</td>
+    <td>{{ drzava.area | number}}</td>
+    <td><img src="{{drzava.flag}}" height="30px" width="30px"/> </td>
+</tr>
+</tbody>
+
+</table>
+</div>

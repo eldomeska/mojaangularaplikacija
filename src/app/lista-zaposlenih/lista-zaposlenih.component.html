@@ -1,0 +1,12 @@
+
+
+
+<div class="container">
+<div class="card" *ngFor="let zaposlenik of zaposleni">
+    <img  src="https://picsum.photos/240/160" alt="">
+    <div class="card-body">
+      <h5 class="card-title">{{ zaposlenik.ime }}</h5>
+      <p class="card-text">{{ zaposlenik.radnoMjesto }} - {{ zaposlenik.starost}} g.</p>
+    </div>
+  </div>
+</div>

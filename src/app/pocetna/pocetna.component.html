@@ -1,0 +1,15 @@
+<p>Pocetna komponenta radi!</p>
+
+<ul *ngIf="prikaziUl">
+   <li [ngClass]="{'plava' :  broj > 3}"
+   *ngFor="let broj of brojevi;let indeksi=index;" id="{{indeksi}}">  {{ broj }} </li>
+</ul>
+
+<ul *ngSwitch="'brojevi'">
+<li *ngSwithcCase= '3'>Tacno</li>
+</ul>
+
+
+<ul [ngSwitch]="broj">
+    <li *ngSwitchCase='1'>Prvi</li>
+</ul>
