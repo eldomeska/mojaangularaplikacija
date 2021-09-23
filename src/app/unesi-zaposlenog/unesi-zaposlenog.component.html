@@ -2,11 +2,18 @@
 
 <form [formGroup]="zaposleniForm" (ngSubmit)="onSubmit()">
 
-    
-    <input class="form-control" type="text" placeholder="Unesite ime i prezime zaposlenog" formControlName="ime">
-    <input class="form-control" type="number" placeholder="Unesite godine zaposlenog" formControlName="starost">
-    <input  class="form-control" type="text" placeholder="Unesite radno mjesto zaposlenog" formControlName="radnoMjesto">
+    <mat-form-field>
+        <input matInput  type="text" placeholder="Unesite ime i prezime zaposlenog" formControlName="ime">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput  type="number" placeholder="Unesite godine zaposlenog" formControlName="starost">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput  type="text" placeholder="Unesite radno mjesto zaposlenog" formControlName="radnoMjesto">
+    </mat-form-field>
 
-    <button type="submit" class="btn btn-primary">Snimi</button>
+
+  <button mat-raised-button color="primary" type="submit">Snimi</button>
+    
 
 </form>

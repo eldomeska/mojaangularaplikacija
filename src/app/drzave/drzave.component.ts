@@ -19,13 +19,18 @@ export class DrzaveComponent implements OnInit {
   regije: string[] = [];
   greska: string = '';
   uspjeh: string = '';
+  ucitvanjeUToku: boolean = false;
 
 
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
+
+    this.ucitvanjeUToku= true;
+
     this.api.getDrzave().subscribe((odgovor) => {
 
+      
       this.listaDrazava = odgovor;
       this.listaDrazavaZaDisplay = odgovor;
       this.uspjeh = "Uspješno ste učitali podatke";
@@ -36,7 +41,11 @@ export class DrzaveComponent implements OnInit {
 
       this.ukupnoSvega();
 
+      this.ucitvanjeUToku= false;
+
     }, (greska) => { this.greska = 'Greska u radu: '+ greska.status; });
+
+    
 
   }
 
